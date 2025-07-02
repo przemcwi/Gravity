@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
 
+:root{
+  font-size: 10px;
+  --linear-gradient: linear-gradient(
+  135deg, 
+  #665DCD 0%,        /* 1st color 0% */
+  #5FA4E6 45%,       /* 2nd color 45% */
+  #D2AB67 100%       /* 3rd color 100% */
+  );
+}
 *,
 *::before,
 *::after {
@@ -13,6 +22,10 @@ a{
     text-decoration: none;
 }
 
+ul li{
+  list-style: none;
+}
+
 body{
     background-color: #141619;
     max-width: 1440px;
@@ -22,5 +35,39 @@ body{
 }
 
 nav{
+  display: flex;
+  padding: 2.4rem 0;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  line-height: 2.4rem;
+  font-weight: 300;
+  align-items: center;
 
+  li{
+    display: inline-block;
+    margin: 0 1.2rem;
+
+    img{
+      margin-left: 0.9rem;
+    }
+  }
+
+  .nav-contact{
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-contact::after{
+    content: "";
+    position: absolute;
+    left: calc(-1.1rem - 1.6rem);
+    width: 1.6rem;
+    height: 1.6rem;
+    background: var(--linear-gradient);
+    border-radius: 50%;
+  }
 }
+
+
