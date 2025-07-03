@@ -9,6 +9,8 @@
   #D2AB67 100%       /* 3rd color 100% */
   );
 }
+
+/* reset */
 *,
 *::before,
 *::after {
@@ -25,6 +27,19 @@ a{
 ul li{
   list-style: none;
 }
+/* reset */
+
+/* components */
+.btn{
+  display: block;
+  width: fit-content;
+  font-size: 19px;
+  text-transform: uppercase;
+  background: var(--linear-gradient);
+  padding: 1.7rem 2.8rem 1.9rem;
+  margin: auto;
+}
+/* components */
 
 body{
     background-color: #141619;
