@@ -43,6 +43,7 @@ nav{
   line-height: 2.4rem;
   font-weight: 300;
   align-items: center;
+  margin-bottom: 3rem;
 
   li{
     display: inline-block;
@@ -68,6 +69,31 @@ nav{
     background: var(--linear-gradient);
     border-radius: 50%;
   }
+  
+}
+
+.hero{
+  h1{
+    font-size: 7.6rem;
+    line-height: 8.6rem;
+    font-weight: 400;
+
+    span{
+      display: block;
+      width: fit-content;
+      margin: auto;
+      margin-bottom: 3rem;
+    }
+  }
+
+  p{
+      max-width: 53rem;
+      font-size: 1.8rem;
+      line-height: 3rem;
+      text-align: center;
+      color: #E5E5E5;
+      margin: 0 auto 3rem;
+    }
 }
 
 
