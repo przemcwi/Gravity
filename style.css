@@ -37,9 +37,30 @@ ul li{
   width: fit-content;
   font-size: 19px;
   text-transform: uppercase;
-  background: var(--linear-gradient);
+  background: linear-gradient(135deg, 
+                #665DCD,        
+                #5FA4E6,      
+                #D2AB67,
+                #665DCD, 
+                #5FA4E6,
+                #D2AB67  );
+  background-size: 300%;
+  background-position: 0;
   padding: 1.7rem 2.8rem 1.9rem;
   margin: auto;
+}
+
+.btn:hover{
+   animation: bg-grad linear 5s;
+}
+
+@keyframes bg-grad {
+  from{
+    background-position: 0;
+  }
+  to{
+    background-position: 100%;
+  }
 }
 
 h2{
@@ -62,6 +83,12 @@ p{
 }
 .mb-6{
   margin-bottom: 6rem;
+}
+.mb-12{
+  margin-bottom: 12rem;
+}
+.mb-16{
+  margin-bottom: 16rem;
 }
 /* components */
 
@@ -189,7 +216,7 @@ nav{
 
 }
 
-.about{
+.about, .market-making{
   text-align: center;
   
   p{
@@ -198,5 +225,171 @@ nav{
     margin-right: auto;
   }
 }
+
+.market-making{
+  position: relative;
+}
+
+.market-making::before,
+.market-making::after{
+  content: '';
+  position: absolute;
+  filter: blur(60px);
+  border-radius: 50%;
+}
+
+.market-making::before{
+    width: 80vw;
+    height: 60vw;
+    background: radial-gradient(circle at center, #665DCD 0%, transparent 70%);
+    z-index: -2;
+    left: -25vw;
+}
+
+.market-making::after{
+    width: 20vw;
+    height: 20vw;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at center, #669df5 0%, transparent 70%);
+    animation: moveBlob 20s linear infinite;
+    z-index: -2;
+}
+
+@keyframes moveBlob {
+  0% {
+    transform: translate(0, 0);
+  }
+  34% {
+    transform: translate(200px, 200px);
+  }
+  66%{
+    transform: translate(-100px, 400px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+
+.market-making .row{
+  display: flex;
+  width: 100%;
+}
+
+.market-making .row > *{
+  width: 50%;
+  text-align: left;
+
+  h4{
+    font-weight: 200;
+    font-size: 3.6rem;
+    line-height: 4.4rem;
+    max-width: 41rem;
+    margin-bottom: 2.7rem;
+  }
+
+  .bold{
+    font-weight: 700;
+    margin: 0 0 2rem;
+  }
+
+  p{
+    font-size: 2rem;
+    line-height: 2.8rem;
+    margin: 0 0 2rem;
+    max-width: 38rem;
+    margin: 0 0 3.2rem;
+  }
+
+  a{
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
+
+}
+.market-making .row.text-right > *{
+  h4,p,a{
+    margin-left: 14.5rem;
+  }
+}
+
+/* #solana{
+  transform-origin: 60% center;
+  animation: svg 10s infinite linear;
+} */
+
+@keyframes svg{
+  0%{
+    transform: rotateY(0deg) ;
+  }
+  100%{
+    transform: rotateY(360deg) ;
+  }
+
+}
+
+/* partners */
+
+.partners{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.partners h3{
+  font-size: 6rem;
+  line-height: 7.8rem;
+  font-weight: 400;
+  max-width: 33%;
+}
+
+#animation{
+  position: absolute;
+  left: -80%;
+  top: -30%;
+  z-index: -1;
+}
+
+.carusel{
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  height: 432px;
+  position: relative;
+  /* overflow: hidden; */
+  mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
+}
+
+.kol-1__partner, .kol-2__partner{
+  display: block;
+  background: linear-gradient(180deg,rgba(65, 85, 114, 0.15) 0%, rgba(27, 27, 30, 0.1) 100%);
+  border: 1px solid #4155727c;
+  border-radius: 4px;
+  width: 192px;
+  height: 192px;
+  margin: 24px 0;
+  padding: 55px;
+}
+
+.kol-1{
+  animation: scrollUp 40s linear infinite;
+}
+
+.kol-2{
+  animation: scrollDown 40s linear infinite;
+}
+
+
+ @keyframes scrollUp {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-200%); }
+    }
+
+     @keyframes scrollDown {
+      0%   { transform: translateY(-200%); }
+      100% { transform: translateY(0); }
+    }
 /* styles */
 
