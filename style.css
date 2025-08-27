@@ -10,6 +10,12 @@
   #5FA4E6 45%,       /* 2nd color 45% */
   #D2AB67 100%       /* 3rd color 100% */
   );
+    --linear-gradient-inv: linear-gradient(
+  45deg, 
+  #665DCD 0%,        /* 1st color 0% */
+  #5FA4E6 45%,       /* 2nd color 45% */
+  #D2AB67 100%       /* 3rd color 100% */
+  );
 }
 
 /* reset */
@@ -336,6 +342,7 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20rem;
 }
 
 .partners h3{
@@ -391,5 +398,173 @@ nav{
       0%   { transform: translateY(-200%); }
       100% { transform: translateY(0); }
     }
+
+  /* company */
+
+    @keyframes posItem1 {
+      to{
+          transform: translateX(-100%) scale(0.7);
+      }
+    }
+    @keyframes posItem2 {
+      to{
+          transform: translateX(0%) scale(1);
+      }
+    }
+    @keyframes posItem3 {
+      to{
+          transform: translateX(100%) scale(0.7);
+      }
+    }
+
+    @keyframes anim-blur {
+      to{
+        filter: blur(10px);
+      }
+    }
+    @keyframes anim-un-blur {
+      to{
+        filter: blur(0px);
+      }
+    }
+    .good-company{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h3{
+        font-size: 5.7rem;
+        line-height: 7.8rem;
+        margin-bottom: 2rem;
+        font-weight: 300;
+
+      }
+      .sub{
+        font-size: 2rem;
+        line-height: 2.8rem;
+        max-width: 60rem;
+        text-align: center;
+      }
+      .arrow{
+          display: flex;
+          gap: 2rem;
+          margin: 2rem;
+        .left,.right{
+          width: 5.8rem;
+          height: 5.8rem;
+          mask-image: url(img/pagination-arrow.svg);
+        }
+        .left{
+          background-image: var(--linear-gradient-inv);
+          transform: rotate(180deg);
+        }
+        .right{
+          background-image: var(--linear-gradient);
+        }
+      }
+      .carousel{
+        width: 100%;
+        position: relative;
+      }
+      .card{
+        position: absolute;
+        background-color: #999999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        p,h4{
+          color: #ffffff;
+        }
+        p{
+        font-size: 2.6rem;
+        line-height: 4.4rem;
+        text-align: center;
+        max-width: 64rem;
+        }
+        h4{
+          font-size: 1.8rem;
+          margin-top: 3rem;
+        }
+      }
+
+      .carousel .card:nth-child(1){
+          transform: translateX(-100%) scale(0.7);
+          filter: blur(10px);
+        }
+
+      .carousel .card:nth-child(3){
+        transform: translateX(100%) scale(0.7);
+        filter: blur(10px);
+      }
+
+      .carousel.prev .card:nth-child(1){
+        animation: posItem3 2s, anim-un-blur 1s;
+        z-index: -1;
+      }
+
+      .carousel.prev .card:nth-child(2){
+        animation: posItem1 2s, anim-blur 1s 1s;
+        z-index: 2;
+      }
+
+      .carousel.prev .card:nth-child(3){
+        animation: posItem2 2s, anim-un-blur 1s;
+        z-index: 1;
+      }
+
+      .carousel.next .card:nth-child(1){
+        animation: posItem2 2s, anim-un-blur 1s;
+        z-index: 1;
+      }
+
+      .carousel.next .card:nth-child(2){
+        animation: posItem3 2s, anim-blur 1s 1s;
+        z-index: 2;
+      }
+
+      .carousel.next .card:nth-child(3){
+        animation: posItem1 2s, anim-blur 1s;
+        z-index: -1;
+      }
+
+
+      .logo{
+        display: flex;
+        margin-top: 3rem;
+        justify-content: space-between;
+        align-items: center;
+
+        .line{
+          display: block;
+          width: 3px;
+          margin: 0.3rem 2rem;
+          align-self: stretch;
+          background-color: #666666;
+        }
+
+        p{
+          font-size: 1.4rem;
+        }
+
+        img{
+          max-height: 26px;
+        }
+      }
+      .pagin-bullet{
+        display: flex;
+        gap: 4rem;
+        margin-top: 4rem;
+        span{
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: #333333;
+        }
+        span.active{
+          background: var(--linear-gradient);
+        }
+      }
+    }
+  /* company */
 /* styles */
 
